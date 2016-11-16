@@ -65,15 +65,14 @@ def main():
         'location': '800 Howard St., San Francisco, CA 94103',
         'description': 'The baby is due on this date for the named client.',
         'start': {
-            'dateTime': '',
-            'timeZone': '',
+            'dateTime': '2018-05-28T17:00:00-07:00',
+            'timeZone': 'America/Los_Angeles',
         },
         'end': {
             'dateTime': '2018-05-28T17:00:00-07:00',
             'timeZone': 'America/Los_Angeles',
         },
-        'recurrence': [],
-        'attendees': [],
+
         'reminders': {
             'useDefault': False,
             'overrides': [

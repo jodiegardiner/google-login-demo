@@ -11,51 +11,78 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static "css/signin.css" %}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    <script type="text/javascript" src="{% static "/bower_components/moment/min/moment-with-locales.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js" %}"></script>
+    <link rel="stylesheet" href="{% static "/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" %} "/>
 
 </head>
 
 <body>
 
 <div class="container">
+    <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+    <h1><span>PregnaPlan</span></h1>
+    <hr>
+    {#     <div class="g-signin2" data-onsuccess="onSignIn"></div>#}
 
-     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+    <hr>
 </div> <!-- /container -->
+<div class="container">
+    <a href="{% url 'create' %}"><button class="btn btn-primary">Create new client</button></a>
+</div>
 
-
-<div class="footer">
-
+<div class="container">
+    {% block content %}
+    {% endblock %}
 </div>
 
 
-    {#      <form class="form-signin">#}
-    {#        <h2 class="form-signin-heading">Please sign in</h2>#}
-    {#        <label for="inputEmail" class="sr-only">Email address</label>#}
-    {#        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>#}
-    {#        <label for="inputPassword" class="sr-only">Password</label>#}
-    {#        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
-    {#        <div class="checkbox">#}
-    {#          <label>#}
-    {#            <input type="checkbox" value="remember-me"> Remember me#}
-    {#          </label>#}
-    {#        </div>#}
-    {#        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>#}
-    {#      </form>#}
+<footer>
+    <div class="container">
+        <ul class="nav pull-right"><li>Jodie Gardiner</li></ul>
+    </div>
+</footer>
+
+
+{#      <form class="form-signin">#}
+{#        <h2 class="form-signin-heading">Please sign in</h2>#}
+{#        <label for="inputEmail" class="sr-only">Email address</label>#}
+{#        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>#}
+{#        <label for="inputPassword" class="sr-only">Password</label>#}
+{#        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
+{#        <div class="checkbox">#}
+{#          <label>#}
+{#            <input type="checkbox" value="remember-me"> Remember me#}
+{#          </label>#}
+{#        </div>#}
+{#        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>#}
+{#      </form>#}
 
 
 
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script>
     function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail());
-}
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+    }
 </script>
 </body>
 </html>

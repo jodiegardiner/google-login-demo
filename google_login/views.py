@@ -4,4 +4,8 @@ from django.shortcuts import render
 
 
 def get_index(request):
-   return render(request, 'base.html')
+    return render(request, 'base.html')
+
+
+def create(request):
+    return render(request, 'formtest.html')

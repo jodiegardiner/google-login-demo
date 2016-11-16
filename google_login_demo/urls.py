@@ -20,4 +20,5 @@ from google_login import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.get_index),
+    url(r'^create/', views.create,  name="create"),
 ]
