@@ -55,33 +55,25 @@ def get_credentials():
 
 def main():
     """Shows basic usage of the Google Calendar API.
-
-    Creates a Google Calendar API service object and outputs a list of the next
-    10 events on the user's calendar.
     """
     credentials = get_credentials()
     http = credentials.authorize(httplib2.Http())
     service = discovery.build('calendar', 'v3', http=http)
 
     event = {
-        'summary': 'June due date',
+        'summary': 'Mary Collins due date',
         'location': '800 Howard St., San Francisco, CA 94103',
-        'description': 'A chance to hear more about Google\'s developer products.',
+        'description': 'The baby is due on this date for the named client.',
         'start': {
-            'dateTime': '2018-05-28T09:00:00-07:00',
-            'timeZone': 'America/Los_Angeles',
+            'dateTime': '',
+            'timeZone': '',
         },
         'end': {
             'dateTime': '2018-05-28T17:00:00-07:00',
             'timeZone': 'America/Los_Angeles',
         },
-        'recurrence': [
-            'RRULE:FREQ=DAILY;COUNT=2'
-        ],
-        'attendees': [
-            {'email': 'lpage@example.com'},
-            {'email': 'sbrin@example.com'},
-        ],
+        'recurrence': [],
+        'attendees': [],
         'reminders': {
             'useDefault': False,
             'overrides': [
@@ -89,6 +81,7 @@ def main():
                 {'method': 'popup', 'minutes': 10},
             ],
         },
+        'visibility': 'private',
     }
 
     event = service.events().insert(calendarId='primary', body=event).execute()
